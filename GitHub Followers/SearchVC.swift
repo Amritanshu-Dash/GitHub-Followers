@@ -17,6 +17,7 @@ class SearchVC: UIViewController {
         super.viewDidLoad() // only once called when the app is being load on the memory
         view.backgroundColor = .systemBackground
         configureLogoImageView()
+        configureTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +39,14 @@ class SearchVC: UIViewController {
     }
     
     func configureTextField() {
+        view.addSubview(userNameTextField)
         
+        NSLayoutConstraint.activate([
+            userNameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            userNameTextField.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 
 }
